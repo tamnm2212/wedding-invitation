@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#f8d7da">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Thiệp Cưới - Trà My & Kim Huy | 27.12.2025</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============ CSS VARIABLES ============ */
+        :root {
+            --pink-light: #fdf2f4;
+            --pink-medium: #f8d7da;
+            --pink-accent: #e8a0b0;
+            --beige: #f5f0e8;
+            --gold: #c9a86c;
+            --gold-dark: #a8894d;
+            --white: #ffffff;
+            --text-dark: #4a4a4a;
+            --text-light: #6b6b6b;
+            --nav-height: 60px;
+            --bottom-nav-height: 70px;
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--pink-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Safe area for notched devices */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            body {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+
+        /* Font Classes */
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .font-elegant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Floral Pattern Background */
+        .floral-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8a0b0' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ============ HERO SECTION ============ */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/bg_main.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 
+            ========== ĐIỀU CHỈNH ĐỘ MỜ 1/3 DƯỚI ẢNH NỀN ==========
+            Thay đổi giá trị gradient để điều chỉnh vùng mờ:
+            - transparent 0% 50%: phần trên trong suốt (0% đến 50%)
+            - rgba(255,255,255,0.85): độ mờ trắng (0.85 = 85% trắng)
+            - 70% 100%: vùng mờ bắt đầu từ 70% đến 100% chiều cao
+        */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.7) 70%,
+                rgba(255, 255, 255, 0.95) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            margin-top: auto;
+            padding: 2rem 1rem 6rem;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-content {
+                padding: 3rem 2rem 8rem;
+            }
+        }
+
+        /* ============ STICKY HEADER ============ */
+        .sticky-header {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: top 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .sticky-header.visible {
+            top: 0;
+        }
+
+        .sticky-header .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: var(--pink-accent);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+                gap: 2rem;
+            }
+            .hamburger {
+                display: none;
+            }
+        }
+
+        .desktop-nav a {
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-accent);
+            transition: width 0.3s;
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--pink-accent);
+        }
+
+        /* ============ BOTTOM NAVIGATION (MOBILE) ============ */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--bottom-nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: var(--safe-area-bottom);
+        }
+
+        @media (min-width: 768px) {
+            .bottom-nav {
+                display: none;
+            }
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.65rem;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .bottom-nav-item.active,
+        .bottom-nav-item:hover {
+            color: var(--pink-accent);
+            background: rgba(232, 160, 176, 0.1);
+        }
+
+        .bottom-nav-item .icon {
+            font-size: 1.25rem;
+        }
+
+        /* Add padding to body for bottom nav */
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom));
+            }
+        }
+
+        /* ============ FLOATING ACTION BUTTONS ============ */
+        .fab-container {
+            position: fixed;
+            right: 1rem;
+            bottom: calc(var(--bottom-nav-height) + 1rem + var(--safe-area-bottom));
+            z-index: 900;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .fab-container {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        .fab {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: none;
+            font-size: 1.25rem;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab:active {
+            transform: scale(0.95);
+        }
+
+        .fab-music {
+            background: white;
+            border: 2px solid var(--pink-medium);
+        }
+
+        .fab-scroll-top {
+            background: var(--pink-accent);
+            color: white;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .fab-scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Music Button Animation */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fab-music.playing .music-icon {
+            animation: spin 3s linear infinite;
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ============ COUNTDOWN BOXES ============ */
+        .countdown-box {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            border: 2px solid var(--pink-accent);
+            box-shadow: 0 10px 30px rgba(200, 150, 160, 0.2);
+        }
+
+        /* ============ EVENT CARDS ============ */
+        .event-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .event-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(200, 150, 160, 0.3);
+            }
+        }
+
+        /* Touch feedback for mobile */
+        .event-card:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ BUTTONS ============ */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (hover: hover) {
+            .btn-gold:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(201, 168, 108, 0.4);
+            }
+        }
+
+        .btn-gold:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ PHOTO GRID ============ */
+        .photo-item {
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (hover: hover) {
+            .photo-item:hover {
+                transform: scale(1.02);
+            }
+
+            .photo-item:hover img {
+                transform: scale(1.1);
+            }
+        }
+
+        .photo-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ LIGHTBOX ============ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.875rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        /* ============ DECORATIVE LINE ============ */
+        .decorative-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ============ FORM ELEMENTS ============ */
+        .custom-radio input:checked + span {
+            background-color: var(--pink-accent);
+            border-color: var(--pink-accent);
+            color: white;
+        }
+
+        input, textarea, select {
+            font-size: 16px !important; /* Prevent zoom on iOS */
+        }
+
+        /* ============ SCROLLBAR ============ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--pink-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-accent);
+            border-radius: 4px;
+        }
+
+        /* Hide scrollbar on mobile */
+        @media (max-width: 767px) {
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            body {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+
+        /* ============ RESPONSIVE TYPOGRAPHY ============ */
+        .text-responsive-sm {
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+        }
+
+        .text-responsive-base {
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
+        }
+
+        .text-responsive-lg {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+        }
+
+        .text-responsive-xl {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+        }
+
+        .text-responsive-2xl {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .text-responsive-3xl {
+            font-size: clamp(2rem, 6vw, 3rem);
+        }
+
+        .text-responsive-4xl {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+        }
+
+        .text-responsive-5xl {
+            font-size: clamp(3rem, 10vw, 5rem);
+        }
+
+        /* ============ RESPONSIVE SPACING ============ */
+        .section-padding {
+            padding-top: clamp(3rem, 8vw, 6rem);
+            padding-bottom: clamp(3rem, 8vw, 6rem);
+        }
+
+        .container-padding {
+            padding-left: clamp(1rem, 4vw, 2rem);
+            padding-right: clamp(1rem, 4vw, 2rem);
+        }
+
+        /* ============ QR CODE CARDS ============ */
+        .qr-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            border: 2px solid var(--pink-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .qr-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(200, 150, 160, 0.3);
+            }
+        }
+
+        .qr-card:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ ORIENTATION HANDLING ============ */
+        @media (orientation: landscape) and (max-height: 500px) {
+            #hero {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+            
+            .countdown-box {
+                padding: 0.75rem !important;
+            }
+            
+            .countdown-box span:first-child {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="floral-pattern">
+
+    <!-- ============ STICKY HEADER ============ -->
+    <header id="stickyHeader" class="sticky-header">
+        <a href="#hero" class="logo">Trà My & Kim Huy</a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+            <a href="#invitation">Lời Mời</a>
+            <a href="#family">Gia Đình</a>
+            <a href="#events">Sự Kiện</a>
+            <a href="#countdown">Countdown</a>
+            <a href="#rsvp">RSVP</a>
+            <a href="#album">Album</a>
+            <a href="#gift">Mừng Cưới</a>
+        </nav>
+        
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ============ MOBILE MENU OVERLAY ============ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" onclick="closeMobileMenu()">Trang chủ</a>
+        <a href="#invitation" onclick="closeMobileMenu()">Lời Mời</a>
+        <a href="#family" onclick="closeMobileMenu()">Gia Đình</a>
+        <a href="#events" onclick="closeMobileMenu()">Sự Kiện</a>
+        <a href="#countdown" onclick="closeMobileMenu()">Countdown</a>
+        <a href="#rsvp" onclick="closeMobileMenu()">Xác Nhận</a>
+        <a href="#album" onclick="closeMobileMenu()">Album</a>
+        <a href="#gift" onclick="closeMobileMenu()">Mừng Cưới</a>
+        <a href="#thanks" onclick="closeMobileMenu()">Cảm Ơn</a>
+    </div>
+
+    <!-- ============ BOTTOM NAVIGATION (MOBILE) ============ -->
+    <nav class="bottom-nav" id="bottomNav">
+        <a href="#hero" class="bottom-nav-item active" data-section="hero">
+            <span class="icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>
+        <a href="#events" class="bottom-nav-item" data-section="events">
+            <span class="icon">💒</span>
+            <span>Sự kiện</span>
+        </a>
+        <a href="#rsvp" class="bottom-nav-item" data-section="rsvp">
+            <span class="icon">💌</span>
+            <span>RSVP</span>
+        </a>
+        <a href="#gift" class="bottom-nav-item" data-section="gift">
+            <span class="icon">🎁</span>
+            <span>Mừng cưới</span>
+        </a>
+    </nav>
+
+    <!-- ============ FLOATING ACTION BUTTONS ============ -->
+    <div class="fab-container">
+        <button id="scrollTopBtn" class="fab fab-scroll-top" aria-label="Scroll to top">
+            ↑
+        </button>
+        <button id="musicBtn" class="fab fab-music" aria-label="Toggle music">
+            <span class="music-icon">🎵</span>
+        </button>
+    </div>
+
+    <!-- ============ AUDIO ELEMENT ============ -->
+    <audio id="bgMusic" loop>
+        <source src="audio/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ============ SECTION 1: HERO ============ -->
+    <section id="hero">
+        <!-- 
+            ========== ĐIỀU CHỈNH ẢNH NỀN ==========
+            - Ảnh hiển thị rõ ràng ở 2/3 phía trên
+            - Chỉ làm mờ 1/3 phía dưới để hiển thị nội dung
+            - Điều chỉnh gradient trong class .hero-overlay ở phần CSS
+        -->
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+
+        <!-- Content ở phần dưới -->
+        <div class="hero-content">
+            <!-- English Subtitle -->
+            <p class="text-responsive-sm tracking-[0.2em] sm:tracking-[0.3em] text-gray-700 uppercase mb-3 sm:mb-4 fade-in">We get married</p>
+            
+            <!-- Main Title -->
+            <h1 class="font-script text-responsive-4xl text-pink-500 mb-4 sm:mb-6 fade-in drop-shadow-lg" style="animation-delay: 0.2s;">
+                Trà My & Kim Huy
+            </h1>
+            
+            <!-- Decorative Line -->
+            <div class="flex justify-center mb-4 sm:mb-6 fade-in" style="animation-delay: 0.3s;">
+                <div class="decorative-line"></div>
+                <span class="mx-3 sm:mx-4 text-xl sm:text-2xl heartbeat">💕</span>
+                <div class="decorative-line"></div>
+            </div>
+
+            <!-- Invitation Title -->
+            <h2 class="font-elegant text-responsive-xl text-gray-800 mb-4 sm:mb-6 tracking-wide fade-in drop-shadow" style="animation-delay: 0.4s;">
+                THƯ MỜI TIỆC CƯỚI
+            </h2>
+
+            <!-- Quote -->
+            <p class="font-elegant italic text-responsive-base text-gray-700 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 fade-in drop-shadow" style="animation-delay: 0.5s;">
+                "Life is an adventure and I'm so grateful to have you by my side ❤️"
+            </p>
+
+            <!-- Bride & Groom Names
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-12 mb-8 sm:mb-10 fade-in" style="animation-delay: 0.6s;">
+                <div class="text-center">
+                    <p class="text-xs sm:text-sm text-gray-600 mb-1">Chú rể</p>
+                    <p class="font-script text-responsive-3xl text-gray-800 drop-shadow">Kim Huy</p>
+                </div>
+                <span class="text-2xl sm:text-3xl text-pink-400">&</span>
+                <div class="text-center">
+                    <p class="text-xs sm:text-sm text-gray-600 mb-1">Cô dâu</p>
+                    <p class="font-script text-responsive-3xl text-gray-800 drop-shadow">Trà My</p>
+                </div>
+            </div>
+
+            CTA Button -->
+            <a href="#invitation" class="inline-block btn-gold text-white px-6 sm:px-8 py-3 rounded-full font-medium tracking-wide text-sm sm:text-base fade-in shadow-lg" style="animation-delay: 0.7s;">
+                Xem chi tiết ↓
+            </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-20 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 2: TRÂN TRỌNG KÍNH MỜI ============ -->
+    <section id="invitation" class="section-padding bg-white">
+        <div class="container mx-auto container-padding max-w-4xl text-center">
+            
+            <div class="fade-in">
+                <!-- Decorative -->
+                <div class="flex justify-center mb-6">
+                    <div class="decorative-line"></div>
+                    <span class="mx-3 sm:mx-4 text-xl sm:text-2xl">💌</span>
+                    <div class="decorative-line"></div>
+                </div>
+
+                <!-- Main Title -->
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-6 sm:mb-8">Trân trọng kính mời!</h2>
+                
+                <!-- Guest Name (from URL) -->
+                <div class="bg-gradient-to-r from-pink-50 via-white to-pink-50 rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 border border-pink-100 shadow-lg">
+                    <p class="text-responsive-sm text-gray-500 uppercase tracking-wider mb-2">Kính gửi</p>
+                    <p id="guestName" class="font-elegant text-responsive-3xl text-gray-700 font-semibold">
+                        Quý khách
+                    </p>
+                </div>
+                
+                <!-- Invitation Text -->
+                <p class="font-elegant text-responsive-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                    Tới dự bữa cơm thân mật và lễ thành hôn của chúng mình 
+                    <span class="text-pink-400 heartbeat inline-block">❤️</span>
+                </p>
+                
+                <!-- Wedding Date Preview -->
+                <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+                    <div class="text-center">
+                        <p class="font-script text-responsive-2xl text-pink-400">27.12.2025</p>
+                        <p class="text-responsive-sm text-gray-500">Tiệc cưới nhà trai</p>
+                    </div>
+                    <span class="hidden sm:block text-2xl text-pink-200">•</span>
+                    <div class="text-center">
+                        <p class="font-script text-responsive-2xl text-pink-400">28.12.2025</p>
+                        <p class="text-responsive-sm text-gray-500">Lễ thành hôn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 3: FAMILY INTRODUCTION ============ -->
+    <section id="family" class="section-padding bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto container-padding max-w-6xl">
+            
+            <!-- Section Title -->
+            <div class="text-center mb-10 sm:mb-16 fade-in">
+                <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">The Families</p>
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-4">Gia Đình Chúng Mình</h2>
+                <div class="flex justify-center">
+                    <div class="decorative-line"></div>
+                </div>
+            </div>
+
+            <!-- Family Cards - 2 columns on desktop, 1 column on mobile -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16">
+                
+                <!-- Bride's Family -->
+                <div class="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-pink-50 border border-pink-100 shadow-lg slide-in-left">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
+                        <img src="images/icon_heart.png" alt="" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
+                    </div>
+                    <h3 class="font-elegant text-xl sm:text-2xl text-gray-700 mb-4 sm:mb-6">Nhà Gái</h3>
+                    <div class="space-y-2 sm:space-y-3 text-gray-600 text-sm sm:text-base">
+                        <p><span class="text-gray-500">Ông:</span> <strong>Vương Văn Thủy</strong></p>
+                        <p><span class="text-gray-500">Bà:</span> <strong>Ngô Thị Vy</strong></p>
+                    </div>
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-pink-100">
+                        <p class="font-script text-xl sm:text-2xl text-pink-400">Trà My</p>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Con gái</p>
+                    </div>
+                </div>
+
+                <!-- Groom's Family -->
+                <div class="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-pink-50 border border-pink-100 shadow-lg slide-in-right">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
+                        <img src="images/icon_ring.png" alt="" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
+                    </div>
+                    <h3 class="font-elegant text-xl sm:text-2xl text-gray-700 mb-4 sm:mb-6">Nhà Trai</h3>
+                    <div class="space-y-2 sm:space-y-3 text-gray-600 text-sm sm:text-base">
+                        <p><span class="text-gray-500">Ông:</span> <strong>Trần Đình Hòa</strong></p>
+                        <p><span class="text-gray-500">Bà:</span> <strong>Trần Thị Nga</strong></p>
+                    </div>
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-pink-100">
+                        <p class="font-script text-xl sm:text-2xl text-pink-400">Kim Huy</p>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Con trai</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Couple Photos - thêm margin-top để lùi xuống -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mt-8 sm:mt-12 mb-10 sm:mb-12 scale-in">
+                <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-xl border-4 border-white float">
+                    <img src="images/couple01.jpg" alt="Cô dâu" class="w-full h-full object-cover">
+                </div>
+                <div class="text-3xl sm:text-4xl text-pink-300 heartbeat">💕</div>
+                <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-xl border-4 border-white float" style="animation-delay: 0.5s;">
+                    <img src="images/couple02.jpg" alt="Chú rể" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Love Story -->
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <h3 class="font-script text-responsive-3xl text-pink-400 mb-4 sm:mb-6">Câu Chuyện Tình Yêu</h3>
+                <p class="text-gray-600 leading-relaxed mb-3 sm:mb-4 font-elegant text-responsive-lg">
+                    Chúng mình gặp nhau trong một ngày nắng đẹp, khi những cánh hoa anh đào rơi nhẹ trên con đường nhỏ. 
+                    Từ những cuộc trò chuyện đầu tiên, chúng mình nhận ra rằng định mệnh đã sắp đặt để hai trái tim cùng chung nhịp đập.
+                </p>
+                <p class="text-gray-600 leading-relaxed font-elegant text-responsive-lg">
+                    Trải qua bao ngày tháng bên nhau, cùng chia sẻ niềm vui và vượt qua những thử thách, 
+                    chúng mình quyết định nắm tay nhau bước vào hành trình mới – hành trình của tình yêu và hạnh phúc vĩnh cửu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 4: EVENTS ============ -->
+    <section id="events" class="section-padding bg-white">
+        <div class="container mx-auto container-padding max-w-5xl">
+            
+            <!-- Section Title -->
+            <div class="text-center mb-10 sm:mb-16 fade-in">
+                <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Wedding Events</p>
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-4">Thông Tin Tiệc Cưới</h2>
+                <div class="flex justify-center">
+                    <div class="decorative-line"></div>
+                </div>
+            </div>
+
+            <!-- Event Cards - 2 columns on desktop, 1 column on mobile -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                
+                <!-- Event 1: Tiệc Cưới Nhà Trai -->
+                <div class="event-card bg-gradient-to-b from-white to-pink-50 rounded-2xl p-5 sm:p-6 md:p-8 text-center border border-pink-100 shadow-lg fade-in">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
+                        <img src="images/icon_ring.png" alt="" class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
+                    </div>
+                    <h3 class="font-elegant text-lg sm:text-xl md:text-2xl text-gray-700 mb-3 sm:mb-4">Tiệc Cưới Nhà Trai</h3>
+                    
+                    <div class="space-y-1 sm:space-y-2 text-gray-600 mb-4 sm:mb-6">
+                        <p class="text-xl sm:text-2xl font-semibold text-pink-400">27.12.2025</p>
+                        <p class="text-base sm:text-lg">17h00 - Thứ Bảy</p>
+                        <p class="text-xs sm:text-sm text-gray-500">(Tức ngày 08 tháng 11 năm Ất Tỵ)</p>
+                    </div>
+                    
+                    <div class="border-t border-pink-100 pt-3 sm:pt-4 mb-4 sm:mb-6">
+                        <p class="text-xs sm:text-sm text-gray-500 mb-1">📍 Địa điểm</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Nhà Văn Hóa Thôn Rùa Thượng</p>
+                    </div>
+                    
+                    <a href="https://maps.google.com" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
+                        Xem chỉ đường
+                    </a>
+                </div>
+
+                <!-- Event 2: Lễ Thành Hôn -->
+                <div class="event-card bg-gradient-to-b from-white to-pink-50 rounded-2xl p-5 sm:p-6 md:p-8 text-center border border-pink-100 shadow-lg fade-in">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
+                        <img src="images/icon_heart.png" alt="" class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
+                    </div>
+                    <h3 class="font-elegant text-lg sm:text-xl md:text-2xl text-gray-700 mb-3 sm:mb-4">Lễ Thành Hôn</h3>
+                    
+                    <div class="space-y-1 sm:space-y-2 text-gray-600 mb-4 sm:mb-6">
+                        <p class="text-xl sm:text-2xl font-semibold text-pink-400">28.12.2025</p>
+                        <p class="text-base sm:text-lg">11h15 - Chủ Nhật</p>
+                        <p class="text-xs sm:text-sm text-gray-500">(Tức ngày 09 tháng 11 năm Ất Tỵ)</p>
+                    </div>
+                    
+                    <div class="border-t border-pink-100 pt-3 sm:pt-4 mb-4 sm:mb-6">
+                        <p class="text-xs sm:text-sm text-gray-500 mb-1">📍 Địa điểm</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Đội 13, thôn Đoàn Kết, xã Tân Minh, tỉnh Ninh Bình</p>
+                    </div>
+                    
+                    <a href="https://maps.google.com" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
+                        Xem chỉ đường
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 5: COUNTDOWN ============ -->
+    <section id="countdown" class="section-padding bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto container-padding max-w-4xl text-center">
+            
+            <!-- Section Title -->
+            <div class="mb-8 sm:mb-12 fade-in">
+                <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Save the Date</p>
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Countdown</h2>
+                <p class="text-gray-600 font-elegant text-responsive-lg">Cùng đếm ngược đến ngày trọng đại của chúng mình!</p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 max-w-lg sm:max-w-2xl mx-auto scale-in">
+                <div class="countdown-box rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6">
+                    <span id="days" class="block text-2xl sm:text-4xl md:text-5xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">Ngày</span>
+                </div>
+                <div class="countdown-box rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6">
+                    <span id="hours" class="block text-2xl sm:text-4xl md:text-5xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">Giờ</span>
+                </div>
+                <div class="countdown-box rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6">
+                    <span id="minutes" class="block text-2xl sm:text-4xl md:text-5xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">Phút</span>
+                </div>
+                <div class="countdown-box rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6">
+                    <span id="seconds" class="block text-2xl sm:text-4xl md:text-5xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">Giây</span>
+                </div>
+            </div>
+
+            <!-- Wedding Date -->
+            <div class="mt-8 sm:mt-10 fade-in">
+                <p class="font-elegant text-responsive-xl text-gray-700">
+                    <span class="text-pink-400">♥</span> 27.12.2025 - 17:00 <span class="text-pink-400">♥</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 6: RSVP ============ -->
+    <section id="rsvp" class="section-padding bg-white">
+        <div class="container mx-auto container-padding max-w-2xl">
+            
+            <!-- Section Title -->
+            <div class="text-center mb-8 sm:mb-12 fade-in">
+                <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">RSVP</p>
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Xác Nhận Tham Dự</h2>
+                <p class="text-gray-600 font-elegant text-responsive-lg max-w-xl mx-auto">
+                    Sự hiện diện của Quý vị là niềm hạnh phúc lớn nhất đối với chúng tôi. 
+                    Rất mong Quý vị bớt chút thời gian phản hồi thông tin tham dự bên dưới.
+                </p>
+            </div>
+
+            <!-- RSVP Form -->
+            <form id="rsvpForm" class="bg-gradient-to-b from-white to-pink-50 rounded-2xl p-5 sm:p-6 md:p-10 shadow-xl border border-pink-100 fade-in">
+                
+                <!-- Name -->
+                <div class="mb-4 sm:mb-6">
+                    <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Họ và tên <span class="text-pink-400">*</span></label>
+                    <input type="text" name="name" required 
+                        class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
+                        placeholder="Nhập họ và tên của bạn">
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-4 sm:mb-6">
+                    <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Số điện thoại <span class="text-pink-400">*</span></label>
+                    <input type="tel" name="phone" required 
+                        class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
+                        placeholder="Nhập số điện thoại">
+                </div>
+
+                <!-- Guest Type -->
+                <div class="mb-4 sm:mb-6">
+                    <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Bạn là <span class="text-pink-400">*</span></label>
+                    <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+                        <label class="custom-radio cursor-pointer">
+                            <input type="radio" name="guestType" value="bride" class="hidden" required>
+                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà gái</span>
+                        </label>
+                        <label class="custom-radio cursor-pointer">
+                            <input type="radio" name="guestType" value="groom" class="hidden">
+                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà trai</span>
+                        </label>
+                        <label class="custom-radio cursor-pointer">
+                            <input type="radio" name="guestType" value="mutual" class="hidden">
+                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Bạn chung</span>
+                        </label>
+                        <label class="custom-radio cursor-pointer">
+                            <input type="radio" name="guestType" value="other" class="hidden">
+                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Khác</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Attendance Status -->
+                <div class="mb-4 sm:mb-6">
+                    <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Trạng thái tham dự <span class="text-pink-400">*</span></label>
+                    <div class="space-y-2 sm:space-y-3">
+                        <label class="custom-radio cursor-pointer block">
+                            <input type="radio" name="attendance" value="attending" class="hidden" required>
+                            <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
+                                <span class="mr-2 sm:mr-3">🎉</span> Mình sẽ tham dự
+                            </span>
+                        </label>
+                        <label class="custom-radio cursor-pointer block">
+                            <input type="radio" name="attendance" value="not-attending" class="hidden">
+                            <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
+                                <span class="mr-2 sm:mr-3">😢</span> Thật tiếc mình bận mất rồi
+                            </span>
+                        </label>
+                        <label class="custom-radio cursor-pointer block">
+                            <input type="radio" name="attendance" value="maybe" class="hidden">
+                            <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
+                                <span class="mr-2 sm:mr-3">🤔</span> Mình đang cân nhắc
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-6 sm:mb-8">
+                    <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Lời nhắn gửi đến cô dâu & chú rể</label>
+                    <textarea name="message" rows="4" 
+                        class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition resize-none text-base bg-white"
+                        placeholder="Nhập lời chúc hoặc lời nhắn của bạn..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full btn-gold text-white py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg tracking-wide">
+                    GỬI XÁC NHẬN 💌
+                </button>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage" class="hidden text-center bg-gradient-to-b from-white to-pink-50 rounded-2xl p-8 sm:p-10 shadow-xl border border-pink-100">
+                <div class="text-5xl sm:text-6xl mb-4">💕</div>
+                <h3 class="font-script text-responsive-3xl text-pink-400 mb-4">Cảm ơn bạn!</h3>
+                <p class="text-gray-600 text-sm sm:text-base">Chúng mình đã nhận được phản hồi của bạn. Hẹn gặp bạn trong ngày vui!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 7: ALBUM ============ -->
+    <section id="album" class="section-padding bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto container-padding max-w-6xl">
+            
+            <!-- Section Title -->
+            <div class="text-center mb-8 sm:mb-12 fade-in">
+                <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Our Memories</p>
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Album of Love</h2>
+                <p class="text-gray-600 font-elegant text-responsive-lg max-w-2xl mx-auto">
+                    Như cánh cửa thời gian kết nối những chuyến đi đã qua và thời khắc hiện tại, 
+                    mỗi bức ảnh là một câu chuyện của hành trình cảm xúc!
+                </p>
+            </div>
+
+            <!-- Photo Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6" id="photoGrid">
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="0">
+                    <img src="images/album01.jpg" alt="Album 1" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="1">
+                    <img src="images/album02.jpg" alt="Album 2" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="2">
+                    <img src="images/album03.jpg" alt="Album 3" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="3">
+                    <img src="images/album04.jpg" alt="Album 4" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="4">
+                    <img src="images/album05.jpg" alt="Album 5" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="5">
+                    <img src="images/album06.jpg" alt="Album 6" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="6">
+                    <img src="images/album07.jpg" alt="Album 7" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="7">
+                    <img src="images/album08.jpg" alt="Album 8" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="8">
+                    <img src="images/album09.jpg" alt="Album 9" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="9">
+                    <img src="images/album10.jpg" alt="Album 10" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="10">
+                    <img src="images/album11.jpg" alt="Album 11" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+                <div class="photo-item rounded-lg sm:rounded-xl overflow-hidden shadow-lg fade-in" data-index="11">
+                    <img src="images/album12.jpg" alt="Album 12" class="w-full h-40 sm:h-52 md:h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LIGHTBOX ============ -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</div>
+        <img id="lightboxImg" src="" alt="Lightbox Image">
+        <div class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</div>
+        <div class="lightbox-counter">
+            <span id="lightboxCurrent">1</span> / <span id="lightboxTotal">12</span>
+        </div>
+    </div>
+
+    <!-- ============ SECTION 8: GIFT BOX ============ -->
+    <section id="gift" class="section-padding bg-white">
+        <div class="container mx-auto container-padding max-w-5xl">
+            
+            <!-- Section Title -->
+            <div class="text-center mb-8 sm:mb-12 fade-in">
+                <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Wedding Gift</p>
+                <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Hộp Quà Mừng</h2>
+                <p class="text-gray-600 font-elegant text-responsive-lg max-w-2xl mx-auto">
+                    Sự hiện diện của bạn là món quà quý giá nhất. Tuy nhiên, nếu không thể tham dự, 
+                    bạn có thể gửi chút tình cảm qua đây nhé...
+                </p>
+            </div>
+
+            <!-- QR Code Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                
+                <!-- Groom QR -->
+                <div class="qr-card rounded-2xl p-5 sm:p-6 md:p-8 text-center fade-in">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-blue-50 flex items-center justify-center">
+                        <span class="text-2xl sm:text-3xl">🤵</span>
+                    </div>
+                    <h3 class="font-elegant text-lg sm:text-xl md:text-2xl text-gray-700 mb-4 sm:mb-6">Mừng cưới đến Chú Rể</h3>
+                    
+                    <!-- QR Image -->
+                    <div class="bg-white rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 inline-block shadow-md mx-auto">
+                        <img src="images/QR1.jpg" alt="QR Code Chú Rể" class="w-40 h-40 sm:w-48 sm:h-48 object-contain">
+                    </div>
+                    
+                    <!-- Bank Info - căn giữa, không lệch -->
+                    <div class="w-full text-center mt-2">
+
+                        <div class="inline-block bg-white/50 rounded-xl px-4 py-3 leading-tight">
+                            <p class="font-semibold text-gray-700 text-sm sm:text-base">
+                                Ngân hàng: BIDV
+                            </p>
+                            <p class="font-semibold text-gray-700 text-sm sm:text-base">
+                                Tên tài khoản: LE NGOC HUY
+                            </p>
+                            <p class="font-semibold text-gray-700 text-sm sm:text-base">
+                                Số tài khoản: 1221707454
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bride QR -->
+                <div class="qr-card rounded-2xl p-5 sm:p-6 md:p-8 text-center fade-in">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-50 flex items-center justify-center">
+                        <span class="text-2xl sm:text-3xl">👰</span>
+                    </div>
+                    <h3 class="font-elegant text-lg sm:text-xl md:text-2xl text-gray-700 mb-4 sm:mb-6">Mừng cưới đến Cô Dâu</h3>
+                    
+                    <!-- QR Image -->
+                    <div class="bg-white rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 inline-block shadow-md mx-auto">
+                        <img src="images/QR2.jpg" alt="QR Code Cô Dâu" class="w-40 h-40 sm:w-48 sm:h-48 object-contain">
+                    </div>
+                    
+                    <!-- Bank Info - căn giữa và giữ ô nền -->
+                    <div class="w-full text-center mt-2">
+
+                        <!-- Ô nền giữ lại nhưng chỉ ôm sát chữ -->
+                        <div class="inline-block bg-white/50 rounded-xl px-4 py-3 leading-tight shadow-sm">
+
+                            <p class="font-semibold text-gray-700 text-sm sm:text-base">
+                                Ngân hàng: BIDV
+                            </p>
+                            <p class="font-semibold text-gray-700 text-sm sm:text-base">
+                                Tên tài khoản: LE NGOC HUY
+                            </p>
+                            <p class="font-semibold text-gray-700 text-sm sm:text-base">
+                                Số tài khoản: 1221707454
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thank You Note -->
+            <div class="text-center mt-8 sm:mt-10 fade-in">
+                <p class="text-gray-500 italic text-sm sm:text-base">
+                    💝 Xin chân thành cảm ơn! 💝
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 9: THANK YOU ============ -->
+    <section id="thanks" class="section-padding bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto container-padding max-w-3xl text-center">
+            
+            <div class="fade-in">
+                <!-- Hearts Animation -->
+                <div class="text-3xl sm:text-4xl mb-4 sm:mb-6">
+                    <span class="inline-block heartbeat">💕</span>
+                </div>
+                
+                <!-- Thank You Text -->
+                <h2 class="font-script text-responsive-5xl text-pink-400 mb-4 sm:mb-6">Thank You!</h2>
+                
+                <p class="font-elegant text-responsive-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                    Sự hiện diện của Quý khách là niềm vinh hạnh đối với gia đình chúng tôi.<br class="hidden sm:block">
+                    Xin chân thành cảm ơn!
+                </p>
+
+                <!-- Couple Names -->
+                <div class="flex justify-center items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                    <span class="font-script text-responsive-3xl text-gray-700">Trà My</span>
+                    <span class="text-xl sm:text-2xl text-pink-300">&</span>
+                    <span class="font-script text-responsive-3xl text-gray-700">Kim Huy</span>
+                </div>
+
+                <!-- Decorative -->
+                <div class="flex justify-center">
+                    <div class="decorative-line"></div>
+                    <span class="mx-3 sm:mx-4 text-xl sm:text-2xl">💍</span>
+                    <div class="decorative-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-gradient-to-b from-white to-pink-100 py-8 sm:py-10 text-center pb-24 sm:pb-10">
+        <div class="container mx-auto px-4">
+            <p class="font-script text-responsive-3xl text-pink-400 mb-2">Trà My & Kim Huy</p>
+            <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">27.12.2025</p>
+            <p class="text-xs sm:text-sm text-gray-500">Made with 💕 for our special day</p>
+        </div>
+    </footer>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ========== VARIABLES ==========
+        const albumImages = [
+            'images/album01.jpg', 'images/album02.jpg', 'images/album03.jpg',
+            'images/album04.jpg', 'images/album05.jpg', 'images/album06.jpg',
+            'images/album07.jpg', 'images/album08.jpg', 'images/album09.jpg',
+            'images/album10.jpg', 'images/album11.jpg', 'images/album12.jpg'
+        ];
+        let currentImageIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // ========== GET GUEST NAME FROM URL ==========
+        function getGuestNameFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            if (name) {
+                document.getElementById('guestName').textContent = decodeURIComponent(name);
+                // Also pre-fill the RSVP form
+                const nameInput = document.querySelector('input[name="name"]');
+                if (nameInput) {
+                    nameInput.value = decodeURIComponent(name);
+                }
+            }
+        }
+
+        // Call on page load
+        getGuestNameFromURL();
+
+        // ========== STICKY HEADER ==========
+        const stickyHeader = document.getElementById('stickyHeader');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 300) {
+                stickyHeader.classList.add('visible');
+            } else {
+                stickyHeader.classList.remove('visible');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========== HAMBURGER MENU ==========
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ========== BOTTOM NAVIGATION ACTIVE STATE ==========
+        const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveNav() {
+            const scrollY = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    bottomNavItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.dataset.section === sectionId) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // ========== SCROLL TO TOP BUTTON ==========
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ========== COUNTDOWN TIMER ==========
+        function updateCountdown() {
+            const weddingDate = new Date('2025-12-27T17:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ========== MUSIC PLAYER ==========
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.classList.remove('playing');
+                musicBtn.querySelector('.music-icon').textContent = '🔇';
+            } else {
+                bgMusic.play().catch(e => console.log('Audio play failed:', e));
+                musicBtn.classList.add('playing');
+                musicBtn.querySelector('.music-icon').textContent = '🎵';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // ========== FADE IN ON SCROLL ==========
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== LIGHTBOX ==========
+        const photoGrid = document.getElementById('photoGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCurrent = document.getElementById('lightboxCurrent');
+        const lightboxTotal = document.getElementById('lightboxTotal');
+
+        lightboxTotal.textContent = albumImages.length;
+
+        photoGrid.addEventListener('click', (e) => {
+            const photoItem = e.target.closest('.photo-item');
+            if (photoItem) {
+                currentImageIndex = parseInt(photoItem.dataset.index);
+                openLightbox();
+            }
+        });
+
+        function openLightbox() {
+            lightboxImg.src = albumImages[currentImageIndex];
+            lightboxCurrent.textContent = currentImageIndex + 1;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = albumImages.length - 1;
+            if (currentImageIndex >= albumImages.length) currentImageIndex = 0;
+            lightboxImg.src = albumImages[currentImageIndex];
+            lightboxCurrent.textContent = currentImageIndex + 1;
+        }
+
+        // Lightbox keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // Lightbox swipe navigation
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    navigateLightbox(1); // Swipe left - next
+                } else {
+                    navigateLightbox(-1); // Swipe right - previous
+                }
+            }
+        }
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // ========== RSVP FORM ==========
+        const rsvpForm = document.getElementById('rsvpForm');
+        const successMessage = document.getElementById('successMessage');
+
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(rsvpForm);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                guestType: formData.get('guestType'),
+                attendance: formData.get('attendance'),
+                message: formData.get('message')
+            };
+
+            console.log('RSVP Data:', data);
+
+            // Show success message with animation
+            rsvpForm.style.opacity = '0';
+            rsvpForm.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                rsvpForm.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                successMessage.style.opacity = '0';
+                successMessage.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    successMessage.style.transition = 'all 0.5s ease';
+                    successMessage.style.opacity = '1';
+                    successMessage.style.transform = 'translateY(0)';
+                }, 50);
+            }, 300);
+
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            /* 
+             * ========== HOOK FOR GOOGLE SHEETS INTEGRATION ==========
+             * fetch('YOUR_GOOGLE_SCRIPT_URL', {
+             *     method: 'POST',
+             *     body: JSON.stringify(data),
+             *     headers: { 'Content-Type': 'application/json' }
+             * })
+             * .then(response => response.json())
+             * .then(result => console.log('Success:', result))
+             * .catch(error => console.error('Error:', error));
+             */
+        });
+
+        // ========== SMOOTH SCROLL FOR NAVIGATION ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 70;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ========== INITIAL ANIMATION FOR HERO ==========
+        window.addEventListener('load', function() {
+            document.querySelectorAll('#hero .fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, 200 * index);
+            });
+        });
+
+        // ========== PREVENT ZOOM ON INPUT FOCUS (iOS) ==========
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('focus', () => {
+                document.querySelector('meta[name="viewport"]').setAttribute(
+                    'content', 
+                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+                );
+            });
+            el.addEventListener('blur', () => {
+                document.querySelector('meta[name="viewport"]').setAttribute(
+                    'content', 
+                    'width=device-width, initial-scale=1.0'
+                );
+            });
+        });
+
+        // ========== ORIENTATION CHANGE HANDLER ==========
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                window.scrollBy(0, 1);
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
