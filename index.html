@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f8d7da">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Thiệp Cưới - Trà My & Kim Huy | 27.12.2025</title>
+    <title>Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- Google Fonts -->
@@ -691,7 +691,19 @@
             padding-left: clamp(1rem, 4vw, 2rem);
             padding-right: clamp(1rem, 4vw, 2rem);
         }
+        /* ============ FIX CĂN GIỮA CONTAINER TRÊN DESKTOP ============ */
+        /* Fallback nếu Tailwind không load */
+        .container {
+            width: 100%;
+            max-width: 1200px;        /* bạn có thể đổi 1000 / 1100 / 1200 tuỳ thích */
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .mx-auto {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
         /* ============ QR CODE CARDS ============ */
         .qr-card {
             background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
@@ -731,7 +743,7 @@
 
     <!-- ============ STICKY HEADER ============ -->
     <header id="stickyHeader" class="sticky-header">
-        <a href="#hero" class="logo">Trà My & Kim Huy</a>
+        <a href="#hero" class="logo">Trần Hoàng & Lan Anh</a>
         
         <!-- Desktop Navigation -->
         <nav class="desktop-nav">
@@ -818,7 +830,7 @@
             
             <!-- Main Title -->
             <h1 class="font-script text-responsive-4xl text-pink-500 mb-4 sm:mb-6 fade-in drop-shadow-lg" style="animation-delay: 0.2s;">
-                Trà My & Kim Huy
+                Trần Hoàng & Lan Anh
             </h1>
             
             <!-- Decorative Line -->
@@ -842,12 +854,12 @@
             <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-12 mb-8 sm:mb-10 fade-in" style="animation-delay: 0.6s;">
                 <div class="text-center">
                     <p class="text-xs sm:text-sm text-gray-600 mb-1">Chú rể</p>
-                    <p class="font-script text-responsive-3xl text-gray-800 drop-shadow">Kim Huy</p>
+                    <p class="font-script text-responsive-3xl text-gray-800 drop-shadow">Trần Hoàng</p>
                 </div>
                 <span class="text-2xl sm:text-3xl text-pink-400">&</span>
                 <div class="text-center">
                     <p class="text-xs sm:text-sm text-gray-600 mb-1">Cô dâu</p>
-                    <p class="font-script text-responsive-3xl text-gray-800 drop-shadow">Trà My</p>
+                    <p class="font-script text-responsive-3xl text-gray-800 drop-shadow">Lan Anh</p>
                 </div>
             </div>
 
@@ -897,12 +909,12 @@
                 <!-- Wedding Date Preview -->
                 <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
                     <div class="text-center">
-                        <p class="font-script text-responsive-2xl text-pink-400">27.12.2025</p>
+                        <p class="font-script text-responsive-2xl text-pink-400">26.12.2025</p>
                         <p class="text-responsive-sm text-gray-500">Tiệc cưới nhà trai</p>
                     </div>
                     <span class="hidden sm:block text-2xl text-pink-200">•</span>
                     <div class="text-center">
-                        <p class="font-script text-responsive-2xl text-pink-400">28.12.2025</p>
+                        <p class="font-script text-responsive-2xl text-pink-400">27.12.2025</p>
                         <p class="text-responsive-sm text-gray-500">Lễ thành hôn</p>
                     </div>
                 </div>
@@ -925,38 +937,37 @@
 
             <!-- Family Cards - 2 columns on desktop, 1 column on mobile -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16">
-                
+                <!-- Groom's Family -->
+                <div class="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-pink-50 border border-pink-100 shadow-lg slide-in-right">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
+                        <img src="images/groom.png" alt="" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
+                    </div>
+                    <h3 class="font-elegant text-xl sm:text-2xl text-gray-700 mb-4 sm:mb-6">Nhà Trai</h3>
+                    <div class="space-y-2 sm:space-y-3 text-gray-600 text-sm sm:text-base">
+                        <p><span class="text-gray-500">Ông:</span> <strong>Trần Đình Tuyến</strong></p>
+                        <p><span class="text-gray-500">Bà:</span> <strong>Nguyễn Thị Duyên</strong></p>
+                    </div>
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-pink-100">
+                        <p class="font-script text-xl sm:text-2xl text-pink-400">Trần Hoàng</p>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Con trai</p>
+                    </div>
+                </div>                
                 <!-- Bride's Family -->
                 <div class="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-pink-50 border border-pink-100 shadow-lg slide-in-left">
                     <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
-                        <img src="images/icon_heart.png" alt="" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
+                        <img src="images/bride.png" alt="" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
                     </div>
                     <h3 class="font-elegant text-xl sm:text-2xl text-gray-700 mb-4 sm:mb-6">Nhà Gái</h3>
                     <div class="space-y-2 sm:space-y-3 text-gray-600 text-sm sm:text-base">
-                        <p><span class="text-gray-500">Ông:</span> <strong>Vương Văn Thủy</strong></p>
-                        <p><span class="text-gray-500">Bà:</span> <strong>Ngô Thị Vy</strong></p>
+                        <p><span class="text-gray-500">Ông:</span> <strong>Nguyễn Văn Bắc</strong></p>
+                        <p><span class="text-gray-500">Bà:</span> <strong>Nguyễn Thị Phương</strong></p>
                     </div>
                     <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-pink-100">
-                        <p class="font-script text-xl sm:text-2xl text-pink-400">Trà My</p>
+                        <p class="font-script text-xl sm:text-2xl text-pink-400">Lan Anh</p>
                         <p class="text-xs sm:text-sm text-gray-500 mt-1">Con gái</p>
                     </div>
                 </div>
 
-                <!-- Groom's Family -->
-                <div class="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-pink-50 border border-pink-100 shadow-lg slide-in-right">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-full bg-pink-100 flex items-center justify-center">
-                        <img src="images/icon_ring.png" alt="" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
-                    </div>
-                    <h3 class="font-elegant text-xl sm:text-2xl text-gray-700 mb-4 sm:mb-6">Nhà Trai</h3>
-                    <div class="space-y-2 sm:space-y-3 text-gray-600 text-sm sm:text-base">
-                        <p><span class="text-gray-500">Ông:</span> <strong>Trần Đình Hòa</strong></p>
-                        <p><span class="text-gray-500">Bà:</span> <strong>Trần Thị Nga</strong></p>
-                    </div>
-                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-pink-100">
-                        <p class="font-script text-xl sm:text-2xl text-pink-400">Kim Huy</p>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Con trai</p>
-                    </div>
-                </div>
             </div>
 
             <!-- Couple Photos - thêm margin-top để lùi xuống -->
@@ -1009,14 +1020,14 @@
                     <h3 class="font-elegant text-lg sm:text-xl md:text-2xl text-gray-700 mb-3 sm:mb-4">Tiệc Cưới Nhà Trai</h3>
                     
                     <div class="space-y-1 sm:space-y-2 text-gray-600 mb-4 sm:mb-6">
-                        <p class="text-xl sm:text-2xl font-semibold text-pink-400">27.12.2025</p>
-                        <p class="text-base sm:text-lg">17h00 - Thứ Bảy</p>
-                        <p class="text-xs sm:text-sm text-gray-500">(Tức ngày 08 tháng 11 năm Ất Tỵ)</p>
+                        <p class="text-xl sm:text-2xl font-semibold text-pink-400">26.12.2025</p>
+                        <p class="text-base sm:text-lg">18h00 - Thứ Sáu</p>
+                        <p class="text-xs sm:text-sm text-gray-500">(Tức ngày 07 tháng 11 năm Ất Tỵ)</p>
                     </div>
                     
                     <div class="border-t border-pink-100 pt-3 sm:pt-4 mb-4 sm:mb-6">
                         <p class="text-xs sm:text-sm text-gray-500 mb-1">📍 Địa điểm</p>
-                        <p class="text-gray-700 text-sm sm:text-base">Nhà Văn Hóa Thôn Rùa Thượng</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Phố Trần Hưng, P. Đông Quang, TP. Thanh Hóa</p>
                     </div>
                     
                     <a href="https://maps.google.com" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
@@ -1032,14 +1043,14 @@
                     <h3 class="font-elegant text-lg sm:text-xl md:text-2xl text-gray-700 mb-3 sm:mb-4">Lễ Thành Hôn</h3>
                     
                     <div class="space-y-1 sm:space-y-2 text-gray-600 mb-4 sm:mb-6">
-                        <p class="text-xl sm:text-2xl font-semibold text-pink-400">28.12.2025</p>
-                        <p class="text-base sm:text-lg">11h15 - Chủ Nhật</p>
-                        <p class="text-xs sm:text-sm text-gray-500">(Tức ngày 09 tháng 11 năm Ất Tỵ)</p>
+                        <p class="text-xl sm:text-2xl font-semibold text-pink-400">27.12.2025</p>
+                        <p class="text-base sm:text-lg">11h00 - Thứ Bảy</p>
+                        <p class="text-xs sm:text-sm text-gray-500">(Tức ngày 08 tháng 11 năm Ất Tỵ)</p>
                     </div>
                     
                     <div class="border-t border-pink-100 pt-3 sm:pt-4 mb-4 sm:mb-6">
                         <p class="text-xs sm:text-sm text-gray-500 mb-1">📍 Địa điểm</p>
-                        <p class="text-gray-700 text-sm sm:text-base">Đội 13, thôn Đoàn Kết, xã Tân Minh, tỉnh Ninh Bình</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Phố Trần Hưng, P. Đông Quang, TP. Thanh Hóa</p>
                     </div>
                     
                     <a href="https://maps.google.com" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
@@ -1084,7 +1095,7 @@
             <!-- Wedding Date -->
             <div class="mt-8 sm:mt-10 fade-in">
                 <p class="font-elegant text-responsive-xl text-gray-700">
-                    <span class="text-pink-400">♥</span> 27.12.2025 - 17:00 <span class="text-pink-400">♥</span>
+                    <span class="text-pink-400">♥</span> 26.12.2025 - 18:00 <span class="text-pink-400">♥</span>
                 </p>
             </div>
         </div>
@@ -1103,93 +1114,110 @@
                     Rất mong Quý vị bớt chút thời gian phản hồi thông tin tham dự bên dưới.
                 </p>
             </div>
+        <!-- 2 cột: bên trái form, bên phải danh sách lời chúc -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
-            <!-- RSVP Form -->
-            <form id="rsvpForm" class="bg-gradient-to-b from-white to-pink-50 rounded-2xl p-5 sm:p-6 md:p-10 shadow-xl border border-pink-100 fade-in">
-                
-                <!-- Name -->
-                <div class="mb-4 sm:mb-6">
-                    <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Họ và tên <span class="text-pink-400">*</span></label>
-                    <input type="text" name="name" required 
-                        class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
-                        placeholder="Nhập họ và tên của bạn">
-                </div>
-
-                <!-- Phone -->
-                <div class="mb-4 sm:mb-6">
-                    <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Số điện thoại <span class="text-pink-400">*</span></label>
-                    <input type="tel" name="phone" required 
-                        class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
-                        placeholder="Nhập số điện thoại">
-                </div>
-
-                <!-- Guest Type -->
-                <div class="mb-4 sm:mb-6">
-                    <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Bạn là <span class="text-pink-400">*</span></label>
-                    <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
-                        <label class="custom-radio cursor-pointer">
-                            <input type="radio" name="guestType" value="bride" class="hidden" required>
-                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà gái</span>
-                        </label>
-                        <label class="custom-radio cursor-pointer">
-                            <input type="radio" name="guestType" value="groom" class="hidden">
-                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà trai</span>
-                        </label>
-                        <label class="custom-radio cursor-pointer">
-                            <input type="radio" name="guestType" value="mutual" class="hidden">
-                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Bạn chung</span>
-                        </label>
-                        <label class="custom-radio cursor-pointer">
-                            <input type="radio" name="guestType" value="other" class="hidden">
-                            <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Khác</span>
-                        </label>
+            <!-- Cột trái: Form -->
+            <div>
+                <!-- RSVP Form -->
+                <form id="rsvpForm" class="bg-gradient-to-b from-white to-pink-50 rounded-2xl p-5 sm:p-6 md:p-10 shadow-xl border border-pink-100 fade-in">
+                    
+                    <!-- Name -->
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Họ và tên <span class="text-pink-400">*</span></label>
+                        <input type="text" name="name" required 
+                            class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
+                            placeholder="Nhập họ và tên của bạn">
                     </div>
-                </div>
 
-                <!-- Attendance Status -->
-                <div class="mb-4 sm:mb-6">
-                    <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Trạng thái tham dự <span class="text-pink-400">*</span></label>
-                    <div class="space-y-2 sm:space-y-3">
-                        <label class="custom-radio cursor-pointer block">
-                            <input type="radio" name="attendance" value="attending" class="hidden" required>
-                            <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
-                                <span class="mr-2 sm:mr-3">🎉</span> Mình sẽ tham dự
-                            </span>
-                        </label>
-                        <label class="custom-radio cursor-pointer block">
-                            <input type="radio" name="attendance" value="not-attending" class="hidden">
-                            <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
-                                <span class="mr-2 sm:mr-3">😢</span> Thật tiếc mình bận mất rồi
-                            </span>
-                        </label>
-                        <label class="custom-radio cursor-pointer block">
-                            <input type="radio" name="attendance" value="maybe" class="hidden">
-                            <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
-                                <span class="mr-2 sm:mr-3">🤔</span> Mình đang cân nhắc
-                            </span>
-                        </label>
+                    <!-- Phone -->
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Số điện thoại <span class="text-pink-400">*</span></label>
+                        <input type="tel" name="phone" required 
+                            class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
+                            placeholder="Nhập số điện thoại">
                     </div>
+
+                    <!-- Guest Type -->
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Bạn là <span class="text-pink-400">*</span></label>
+                        <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+                            <label class="custom-radio cursor-pointer">
+                                <input type="radio" name="guestType" value="bride" class="hidden" required>
+                                <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà gái</span>
+                            </label>
+                            <label class="custom-radio cursor-pointer">
+                                <input type="radio" name="guestType" value="groom" class="hidden">
+                                <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà trai</span>
+                            </label>
+                            <label class="custom-radio cursor-pointer">
+                                <input type="radio" name="guestType" value="mutual" class="hidden">
+                                <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Bạn chung</span>
+                            </label>
+                            <label class="custom-radio cursor-pointer">
+                                <input type="radio" name="guestType" value="other" class="hidden">
+                                <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Khác</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Status -->
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Trạng thái tham dự <span class="text-pink-400">*</span></label>
+                        <div class="space-y-2 sm:space-y-3">
+                            <label class="custom-radio cursor-pointer block">
+                                <input type="radio" name="attendance" value="attending" class="hidden" required>
+                                <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
+                                    <span class="mr-2 sm:mr-3">🎉</span> Mình sẽ tham dự
+                                </span>
+                            </label>
+                            <label class="custom-radio cursor-pointer block">
+                                <input type="radio" name="attendance" value="not-attending" class="hidden">
+                                <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
+                                    <span class="mr-2 sm:mr-3">😢</span> Thật tiếc mình bận mất rồi
+                                </span>
+                            </label>
+                            <label class="custom-radio cursor-pointer block">
+                                <input type="radio" name="attendance" value="maybe" class="hidden">
+                                <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
+                                    <span class="mr-2 sm:mr-3">🤔</span> Mình đang cân nhắc
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="mb-6 sm:mb-8">
+                        <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Lời nhắn gửi đến cô dâu & chú rể</label>
+                        <textarea name="message" rows="4" 
+                            class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition resize-none text-base bg-white"
+                            placeholder="Nhập lời chúc hoặc lời nhắn của bạn..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full btn-gold text-white py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg tracking-wide">
+                        GỬI XÁC NHẬN 💌
+                    </button>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage" class="hidden text-center bg-gradient-to-b from-white to-pink-50 rounded-2xl p-8 sm:p-10 shadow-xl border border-pink-100">
+                    <div class="text-5xl sm:text-6xl mb-4">💕</div>
+                    <h3 class="font-script text-responsive-3xl text-pink-400 mb-4">Cảm ơn bạn!</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">Chúng mình đã nhận được phản hồi của bạn. Hẹn gặp bạn trong ngày vui!</p>
                 </div>
+            </div>
+            <!-- Cột phải: Danh sách lời chúc -->
+            <div class="bg-gradient-to-b from-white to-pink-50 rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl border border-pink-100 fade-in">
+                <h3 class="font-elegant text-lg sm:text-xl text-gray-700 mb-3 sm:mb-4">
+                    Lời chúc từ mọi người 💌
+                </h3>
 
-                <!-- Message -->
-                <div class="mb-6 sm:mb-8">
-                    <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Lời nhắn gửi đến cô dâu & chú rể</label>
-                    <textarea name="message" rows="4" 
-                        class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition resize-none text-base bg-white"
-                        placeholder="Nhập lời chúc hoặc lời nhắn của bạn..."></textarea>
+                <!-- vùng scroll -->
+                <div id="wishList" class="space-y-3 max-h-96 overflow-y-auto pr-2 text-sm sm:text-base">
+                    <!-- JS sẽ tự nhét các lời chúc vào đây -->
+                    <p class="text-gray-400 text-sm">Chưa có lời chúc nào, hãy là người đầu tiên nhé 🥰</p>
                 </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="w-full btn-gold text-white py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg tracking-wide">
-                    GỬI XÁC NHẬN 💌
-                </button>
-            </form>
-
-            <!-- Success Message (Hidden by default) -->
-            <div id="successMessage" class="hidden text-center bg-gradient-to-b from-white to-pink-50 rounded-2xl p-8 sm:p-10 shadow-xl border border-pink-100">
-                <div class="text-5xl sm:text-6xl mb-4">💕</div>
-                <h3 class="font-script text-responsive-3xl text-pink-400 mb-4">Cảm ơn bạn!</h3>
-                <p class="text-gray-600 text-sm sm:text-base">Chúng mình đã nhận được phản hồi của bạn. Hẹn gặp bạn trong ngày vui!</p>
             </div>
         </div>
     </section>
@@ -1371,9 +1399,9 @@
 
                 <!-- Couple Names -->
                 <div class="flex justify-center items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                    <span class="font-script text-responsive-3xl text-gray-700">Trà My</span>
+                    <span class="font-script text-responsive-3xl text-gray-700">Trần Hoàng</span>
                     <span class="text-xl sm:text-2xl text-pink-300">&</span>
-                    <span class="font-script text-responsive-3xl text-gray-700">Kim Huy</span>
+                    <span class="font-script text-responsive-3xl text-gray-700">Lan Anh</span>
                 </div>
 
                 <!-- Decorative -->
@@ -1389,7 +1417,7 @@
     <!-- ============ FOOTER ============ -->
     <footer class="bg-gradient-to-b from-white to-pink-100 py-8 sm:py-10 text-center pb-24 sm:pb-10">
         <div class="container mx-auto px-4">
-            <p class="font-script text-responsive-3xl text-pink-400 mb-2">Trà My & Kim Huy</p>
+            <p class="font-script text-responsive-3xl text-pink-400 mb-2">Trần Hoàng & Lan Anh</p>
             <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">27.12.2025</p>
             <p class="text-xs sm:text-sm text-gray-500">Made with 💕 for our special day</p>
         </div>
@@ -1499,7 +1527,7 @@
 
         // ========== COUNTDOWN TIMER ==========
         function updateCountdown() {
-            const weddingDate = new Date('2025-12-27T17:00:00').getTime();
+            const weddingDate = new Date('2025-12-26T18:00:00').getTime();
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
@@ -1638,9 +1666,12 @@
         const rsvpForm = document.getElementById('rsvpForm');
         const successMessage = document.getElementById('successMessage');
 
+        // THAY BẰNG URL WEB APP CỦA BẠN
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6tRKC6IvwSuBWY9hypsM7-x0bZ1bBoWppLV4_B9MMbQvyM-fSnCl2Qe0juPgUDHf5Iw/exec';
+
         rsvpForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+                    
             const formData = new FormData(rsvpForm);
             const data = {
                 name: formData.get('name'),
@@ -1652,16 +1683,28 @@
 
             console.log('RSVP Data:', data);
 
-            // Show success message with animation
+            // Gửi dữ liệu lên Google Apps Script (Google Sheet)
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // tránh lỗi CORS, gửi "âm thầm"
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).catch(error => {
+                console.error('Error sending to Google Script:', error);
+            });
+
+            // Hiện hiệu ứng cảm ơn như cũ
             rsvpForm.style.opacity = '0';
             rsvpForm.style.transform = 'translateY(-20px)';
-            
+                    
             setTimeout(() => {
                 rsvpForm.classList.add('hidden');
                 successMessage.classList.remove('hidden');
                 successMessage.style.opacity = '0';
                 successMessage.style.transform = 'translateY(20px)';
-                
+                        
                 setTimeout(() => {
                     successMessage.style.transition = 'all 0.5s ease';
                     successMessage.style.opacity = '1';
@@ -1670,20 +1713,50 @@
             }, 300);
 
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            /* 
-             * ========== HOOK FOR GOOGLE SHEETS INTEGRATION ==========
-             * fetch('YOUR_GOOGLE_SCRIPT_URL', {
-             *     method: 'POST',
-             *     body: JSON.stringify(data),
-             *     headers: { 'Content-Type': 'application/json' }
-             * })
-             * .then(response => response.json())
-             * .then(result => console.log('Success:', result))
-             * .catch(error => console.error('Error:', error));
-             */
         });
+        const wishListEl = document.getElementById('wishList');
 
+        function renderWishes(wishes) {
+            if (!wishListEl) return;
+
+            if (!wishes || wishes.length === 0) {
+                wishListEl.innerHTML = '<p class="text-gray-400 text-sm">Chưa có lời chúc nào, hãy là người đầu tiên nhé 🥰</p>';
+                return;
+            }
+
+            wishListEl.innerHTML = ''; // xoá cũ
+
+            wishes.forEach(function(wish) {
+                const item = document.createElement('div');
+                item.className = 'bg-pink-50/60 rounded-lg px-3 py-2 sm:px-4 sm:py-3';
+                item.innerHTML = `
+                    <p class="font-semibold text-gray-800 text-sm sm:text-base">${wish.name || 'Ẩn danh'}</p>
+                    <p class="text-gray-700 text-sm sm:text-base mt-1 whitespace-pre-line">${wish.message || ''}</p>
+                `;
+                wishListEl.appendChild(item);
+            });
+        }
+
+        // Gọi API doGet để lấy list lời chúc
+        function loadWishes() {
+            fetch(GOOGLE_SCRIPT_URL)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    renderWishes(data);
+                })
+                .catch(function(err) {
+                    console.error('Không tải được lời chúc:', err);
+                });
+        }
+
+        // Load ngay khi trang mở
+        loadWishes();
+
+        // Sau khi submit RSVP xong thì load lại list (thêm dưới phần xử lý submit RSVP):
+        // Trong .then() của fetch RSVP (hoặc ngay sau phần hiệu ứng success) bạn thêm:
+        loadWishes();
+        // Cập nhật lại mỗi 1 giây
+        setInterval(loadWishes, 1000);
         // ========== SMOOTH SCROLL FOR NAVIGATION ==========
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
