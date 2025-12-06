@@ -6,11 +6,25 @@
     <meta name="theme-color" content="#f8d7da">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- Primary Meta Tags -->
     <title>Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025</title>
-    <meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tamnm2212.github.io">
-    <meta property="og:image" content="https://tamnm2212.github.io/wedding-invitation/images/bg_main.png">
+    <meta name="title" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025" />
+    <meta name="description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tamnm2212.github.io/wedding-invitation/" />
+    <meta property="og:title" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025" />
+    <meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025." />
+    <meta property="og:image" content="https://tamnm2212.github.io/wedding-invitation/images/bg_main1.png" />
+
+    <!-- X (Twitter) -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://tamnm2212.github.io/wedding-invitation/" />
+    <meta property="twitter:title" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025" />
+    <meta property="twitter:description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025." />
+    <meta property="twitter:image" content="https://tamnm2212.github.io/wedding-invitation/images/bg_main1.png" />
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- Google Fonts -->
@@ -37,8 +51,8 @@
         }
 
         * {
-            margin: 0;
-            padding: 0;
+            /* margin: 0; */
+            /* padding: 0; */
             box-sizing: border-box;
         }
 
@@ -92,7 +106,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('images/bg_main.png');
+            background-image: url('images/bg_main1.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -320,6 +334,9 @@
             body {
                 padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom));
             }
+                    .hero-background {
+            background-image: url('images/bg_main.png');
+        }
         }
 
         /* ============ FLOATING ACTION BUTTONS ============ */
@@ -869,13 +886,13 @@
             </div>
 
             CTA Button -->
-            <a href="#invitation" class="inline-block btn-gold text-white px-6 sm:px-8 py-3 rounded-full font-medium tracking-wide text-sm sm:text-base fade-in shadow-lg" style="animation-delay: 0.7s;">
+            <a style="margin-top: 20px;" href="#invitation" class="inline-block btn-gold text-white px-6 sm:px-8 py-3 rounded-full font-medium tracking-wide text-sm sm:text-base fade-in shadow-lg" style="animation-delay: 0.7s;">
                 Xem chi tiết ↓
             </a>
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-20 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+        <div class="absolute bottom-10 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
@@ -976,7 +993,7 @@
             </div>
 
             <!-- Couple Photos - thêm margin-top để lùi xuống -->
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mt-8 sm:mt-12 mb-10 sm:mb-12 scale-in">
+            <div style="margin-top: 80px;" class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mt-8 sm:mt-12 mb-10 sm:mb-12 scale-in">
                 <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-xl border-4 border-white float">
                     <img src="images/couple01.png" alt="Cô dâu" class="w-full h-full object-cover">
                 </div>
@@ -987,7 +1004,7 @@
             </div>
 
             <!-- Love Story -->
-            <div class="max-w-3xl mx-auto text-center fade-in">
+            <div style="margin-top: 20px;" class="max-w-3xl mx-auto text-center fade-in">
                 <h3 class="font-script text-responsive-3xl text-pink-400 mb-4 sm:mb-6">Câu Chuyện Tình Yêu</h3>
                 <p class="text-gray-600 leading-relaxed mb-3 sm:mb-4 font-elegant text-responsive-lg">
                     Chúng mình gặp nhau trong một ngày nắng đẹp, khi những cánh hoa anh đào rơi nhẹ trên con đường nhỏ. 
@@ -1035,7 +1052,7 @@
                         <p class="text-gray-700 text-sm sm:text-base">Phố Trần Hưng, P. Đông Quang, TP. Thanh Hóa</p>
                     </div>
                     
-                    <a href="https://maps.google.com" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
+                    <a style="margin-top: 20px;"href="https://www.google.com/maps/place/19%C2%B046'57.1%22N+105%C2%B045'17.6%22E/@19.782517,105.754895,1032m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d19.782517!4d105.754895?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
                         Xem chỉ đường
                     </a>
                 </div>
@@ -1058,7 +1075,7 @@
                         <p class="text-gray-700 text-sm sm:text-base">Phố Trần Hưng, P. Đông Quang, TP. Thanh Hóa</p>
                     </div>
                     
-                    <a href="https://maps.google.com" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
+                    <a style="margin-top: 20px;"href="https://www.google.com/maps/place/19%C2%B046'57.1%22N+105%C2%B045'17.6%22E/@19.782517,105.754895,1032m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d19.782517!4d105.754895?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-block btn-gold text-white text-xs sm:text-sm px-5 sm:px-6 py-2 rounded-full">
                         Xem chỉ đường
                     </a>
                 </div>
@@ -1074,7 +1091,7 @@
             <div class="mb-8 sm:mb-12 fade-in">
                 <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Save the Date</p>
                 <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Countdown</h2>
-                <p class="text-gray-600 font-elegant text-responsive-lg">Cùng đếm ngược đến ngày trọng đại của chúng mình!</p>
+                <p style="margin-bottom: 20px;"class="text-gray-600 font-elegant text-responsive-lg">Cùng đếm ngược đến ngày trọng đại của chúng mình!</p>
             </div>
 
             <!-- Countdown Timer -->
@@ -1098,7 +1115,7 @@
             </div>
 
             <!-- Wedding Date -->
-            <div class="mt-8 sm:mt-10 fade-in">
+            <div  class="mt-8 sm:mt-10 fade-in">
                 <p class="font-elegant text-responsive-xl text-gray-700">
                     <span class="text-pink-400">♥</span> 26.12.2025 - 18:00 <span class="text-pink-400">♥</span>
                 </p>
@@ -1128,7 +1145,7 @@
                 <form id="rsvpForm" class="bg-gradient-to-b from-white to-pink-50 rounded-2xl p-5 sm:p-6 md:p-10 shadow-xl border border-pink-100 fade-in">
                     
                     <!-- Name -->
-                    <div class="mb-4 sm:mb-6">
+                    <div style="margin-bottom: 10px;" class="mb-4 sm:mb-6">
                         <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Họ và tên <span class="text-pink-400">*</span></label>
                         <input type="text" name="name" required 
                             class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
@@ -1136,7 +1153,7 @@
                     </div>
 
                     <!-- Phone -->
-                    <div class="mb-4 sm:mb-6">
+                    <div style="margin-bottom: 10px;" class="mb-4 sm:mb-6">
                         <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Số điện thoại <span class="text-pink-400">*</span></label>
                         <input type="tel" name="phone" required 
                             class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-base bg-white"
@@ -1144,9 +1161,9 @@
                     </div>
 
                     <!-- Guest Type -->
-                    <div class="mb-4 sm:mb-6">
+                    <div style="margin-bottom: 10px;" class="mb-4 sm:mb-6">
                         <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Bạn là <span class="text-pink-400">*</span></label>
-                        <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+                        <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-2">
                             <label class="custom-radio cursor-pointer">
                                 <input type="radio" name="guestType" value="bride" class="hidden" required>
                                 <span class="block text-center py-2.5 sm:py-2 px-2 sm:px-3 border border-pink-200 rounded-lg text-xs sm:text-sm transition hover:border-pink-400 bg-white">Nhà gái</span>
@@ -1170,19 +1187,19 @@
                     <div class="mb-4 sm:mb-6">
                         <label class="block text-gray-700 font-medium mb-2 sm:mb-3 text-sm sm:text-base">Trạng thái tham dự <span class="text-pink-400">*</span></label>
                         <div class="space-y-2 sm:space-y-3">
-                            <label class="custom-radio cursor-pointer block">
+                            <label style="margin-bottom: 10px;" class="custom-radio cursor-pointer block">
                                 <input type="radio" name="attendance" value="attending" class="hidden" required>
                                 <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
                                     <span class="mr-2 sm:mr-3">🎉</span> Mình sẽ tham dự
                                 </span>
                             </label>
-                            <label class="custom-radio cursor-pointer block">
+                            <label style="margin-bottom: 10px;" class="custom-radio cursor-pointer block">
                                 <input type="radio" name="attendance" value="not-attending" class="hidden">
                                 <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
                                     <span class="mr-2 sm:mr-3">😢</span> Thật tiếc mình bận mất rồi
                                 </span>
                             </label>
-                            <label class="custom-radio cursor-pointer block">
+                            <label style="margin-bottom: 10px;" class="custom-radio cursor-pointer block">
                                 <input type="radio" name="attendance" value="maybe" class="hidden">
                                 <span class="flex items-center py-3 px-3 sm:px-4 border border-pink-200 rounded-lg transition hover:border-pink-400 text-sm sm:text-base bg-white">
                                     <span class="mr-2 sm:mr-3">🤔</span> Mình đang cân nhắc
@@ -1192,7 +1209,7 @@
                     </div>
 
                     <!-- Message -->
-                    <div class="mb-6 sm:mb-8">
+                    <div style="margin-bottom: 10px;" class="mb-6 sm:mb-8">
                         <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Lời nhắn gửi đến cô dâu & chú rể</label>
                         <textarea name="message" rows="4" 
                             class="w-full px-3 sm:px-4 py-3 border border-pink-200 rounded-lg focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition resize-none text-base bg-white"
@@ -1214,7 +1231,7 @@
             </div>
             <!-- Cột phải: Danh sách lời chúc -->
             <div class="bg-gradient-to-b from-white to-pink-50 rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl border border-pink-100 fade-in">
-                <h3 class="font-elegant text-lg sm:text-xl text-gray-700 mb-3 sm:mb-4">
+                <h3 style="margin-bottom: 10px;" class="font-elegant text-lg sm:text-xl text-gray-700 mb-3 sm:mb-4">
                     Lời chúc từ mọi người 💌
                 </h3>
 
@@ -1302,7 +1319,7 @@
             <div class="text-center mb-8 sm:mb-12 fade-in">
                 <p class="text-responsive-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Wedding Gift</p>
                 <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Hộp Quà Mừng</h2>
-                <p class="text-gray-600 font-elegant text-responsive-lg max-w-2xl mx-auto">
+                <p style="margin-bottom: 20px;"class="text-gray-600 font-elegant text-responsive-lg max-w-2xl mx-auto">
                     Sự hiện diện của bạn là món quà quý giá nhất. Tuy nhiên, nếu không thể tham dự, 
                     bạn có thể gửi chút tình cảm qua đây nhé...
                 </p>
@@ -1377,7 +1394,7 @@
 
             <!-- Thank You Note -->
             <div class="text-center mt-8 sm:mt-10 fade-in">
-                <p class="text-gray-500 italic text-sm sm:text-base">
+                <p style="margin-top: 20px;"class="text-gray-500 italic text-sm sm:text-base">
                     💝 Xin chân thành cảm ơn! 💝
                 </p>
             </div>
