@@ -3,9 +3,9 @@
 <head>
     <title>Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025</title>
     <meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025.">
-    <meta property="og:url" content="https://tamnm2212.github.io/wedding-invitation">
+    <meta property="og:url" content="https://dinhhoanglananh.netlify.app/">
      <meta property="og:site_name" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025" />
-    <meta property="og:image" content="https://imgur.com/a/Xpz7k6x">
+    <meta property="og:image" content="https://dinhhoanglananh.netlify.app/images/share_preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta charset="UTF-8">
@@ -383,7 +383,72 @@
                 <h2 class="font-script text-responsive-4xl text-pink-400 mb-3 sm:mb-4">Countdown</h2>
                 <p style="margin-bottom: 20px;"class="text-gray-600 font-elegant text-responsive-lg">Cùng đếm ngược đến ngày trọng đại của chúng mình!</p>
             </div>
+            <!-- Lịch nhỏ -->
+            <div class="mb-8 sm:mb-10 flex justify-center fade-in">
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        DECEMBER / 2025
+                    </div>
+                    <div class="calendar-weekdays">
+                        <span>Sun</span>
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                    </div>
+                    <div class="calendar-grid">
+                        <!-- Tuần 1: Dec 1 là thứ Hai -->
+                        <div class="calendar-day calendar-day--empty"></div>
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+                        <div class="calendar-day">6</div>
 
+                        <!-- Tuần 2 -->
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day">10</div>
+                        <div class="calendar-day">11</div>
+                        <div class="calendar-day">12</div>
+                        <div class="calendar-day">13</div>
+
+                        <!-- Tuần 3 -->
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day">20</div>
+
+                        <!-- Tuần 4 -->
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day">25</div>
+
+                        <!-- Ngày cưới 26.12: highlight -->
+                        <div class="calendar-day calendar-day--wedding">26</div>
+
+                        <div class="calendar-day">27</div>
+
+                        <!-- Tuần 5 -->
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                        <div class="calendar-day">31</div>
+                        <div class="calendar-day calendar-day--empty"></div>
+                        <div class="calendar-day calendar-day--empty"></div>
+                        <div class="calendar-day calendar-day--empty"></div>
+                    </div>
+                </div>
+            </div>
             <!-- Countdown Timer -->
             <div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 max-w-lg sm:max-w-2xl mx-auto scale-in">
                 <div class="countdown-box rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6">
@@ -526,7 +591,7 @@
                 </h3>
 
                 <!-- vùng scroll -->
-                <div id="wishList" class="space-y-3 max-h-96 overflow-y-auto pr-2 text-sm sm:text-base">
+                <div id="wishList" class="space-y-3 max-h-170 overflow-y-auto pr-2 text-sm sm:text-base">
                     <!-- JS sẽ tự nhét các lời chúc vào đây -->
                     <p class="text-gray-400 text-sm">Chưa có lời chúc nào, hãy là người đầu tiên nhé 🥰</p>
                 </div>
@@ -1118,6 +1183,42 @@
                 window.scrollBy(0, 1);
             }, 100);
         });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function createHeart() {
+                const heart = document.createElement("div");
+
+                // Trái tim màu hồng
+                heart.innerHTML = "💗";
+                heart.classList.add("heart");
+
+                // Kích thước tim (nhỏ – vừa)
+                const size = Math.random() * 8 + 4; // 10px → 20px
+                heart.style.fontSize = size + "px";
+
+                // Vị trí ngang ngẫu nhiên
+                heart.style.left = Math.random() * 100 + "vw";
+
+                // Thời gian rơi (8–13 giây)
+                const duration = Math.random() * 5 + 10;
+                heart.style.animationDuration = duration + "s";
+
+                document.body.appendChild(heart);
+
+                // Xóa khi rơi xong
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }
+
+            // 0.7s tạo 1 trái tim
+            setInterval(createHeart, 500);
+        });
+
+
+
+
     </script>
     <style>
         /* ============ CSS VARIABLES ============ */
@@ -1860,6 +1961,103 @@
                 font-size: 1.5rem !important;
             }
         }
+        /* ============ WEDDING CALENDAR ============ */
+        .calendar-card {
+            background: linear-gradient(180deg, #ffffff 0%, #fdf2f4 100%);
+            border-radius: 1rem;
+            border: 1px solid var(--pink-medium);
+            padding: 1.5rem 2rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(200, 150, 160, 0.25);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            font-size: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-weekdays span {
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .calendar-day {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            color: var(--text-dark);
+        }
+
+        .calendar-day--empty {
+            background: transparent;
+        }
+
+        .calendar-day--muted {
+            color: #c0c0c0;
+        }
+
+        .calendar-day--wedding {
+            background: var(--pink-accent);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(200, 150, 160, 0.35);
+        }
+
+        /* Hiệu ứng trái tim rơi thẳng */
+        .heart {
+            position: fixed;
+            top: -10px;
+            left: 0;
+            pointer-events: none;
+            animation-name: heart-fall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            opacity: 0.9;
+            z-index: 9999;
+        }
+
+        @keyframes heart-fall {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh); /* rơi thẳng xuống dưới */
+                opacity: 0;
+            }
+        }
     </style>
+
 </body>
 </html>
