@@ -125,23 +125,57 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// ========== MUSIC PLAYER ==========
-const musicBtn = document.getElementById('musicBtn');
-const bgMusic = document.getElementById('bgMusic');
-let isPlaying = false;
+// ========== MUSIC PLAYER (GIỐNG MẪU WEB) ==========
+document.addEventListener("DOMContentLoaded", function () {
+  const audio = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicBtn");
+  const icon = btn?.querySelector(".music-icon");
 
-musicBtn.addEventListener('click', function() {
-    if (isPlaying) {
-        bgMusic.pause();
-        musicBtn.classList.remove('playing');
-        musicBtn.querySelector('.music-icon').textContent = '🔇';
+  if (!audio || !btn) return;
+
+  audio.volume = 0.8;
+
+  function startRotate() {
+    btn.classList.add("playing");          // bạn đã có CSS quay icon rồi
+  }
+  function stopRotate() {
+    btn.classList.remove("playing");
+  }
+
+  function setUIPlaying(isOn) {
+    if (icon) icon.textContent = isOn ? "🎵" : "🔇";
+    isOn ? startRotate() : stopRotate();
+  }
+
+  // Toggle play/pause khi bấm nút
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play().then(() => {
+        setUIPlaying(true);
+      }).catch(() => {
+        // nếu bị chặn thì thôi
+      });
     } else {
-        bgMusic.play().catch(e => console.log('Audio play failed:', e));
-        musicBtn.classList.add('playing');
-        musicBtn.querySelector('.music-icon').textContent = '🎵';
+      audio.pause();
+      setUIPlaying(false);
     }
-    isPlaying = !isPlaying;
+  });
+
+  // Autoplay khi user lần đầu tương tác
+  function tryPlay() {
+    if (audio.paused) {
+      audio.play().then(() => {
+        setUIPlaying(true);
+      }).catch(() => {/* bị chặn thì thôi */});
+    }
+  }
+
+  window.addEventListener("scroll", tryPlay, { passive: true, once: true });
+  document.addEventListener("click", tryPlay, { once: true });
+  document.addEventListener("touchstart", tryPlay, { passive: true, once: true });
 });
+
+
 
 // ========== FADE IN ON SCROLL ==========
 const observerOptions = {
