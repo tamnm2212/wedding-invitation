@@ -332,7 +332,7 @@ body {
 /* ========== TOOLTIP PHI RA TỪ NÚT ========== */
 .music-hint{
   position: absolute;
-  right: calc(100% - 40px);   /* nằm sát bên trái của nút */
+  right: calc(100% - 35px);   /* nằm sát bên trái của nút */
   top: 50%;
   transform: translateY(-50%) translateX(14px) scale(0.95);
 
@@ -343,7 +343,7 @@ body {
   padding: 14px 14px;
   border-radius: 999px;
 
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
@@ -354,7 +354,7 @@ body {
   pointer-events: none;
   z-index: -1;
 
-  animation: hintSlideLeft 5s ease forwards;
+  animation: hintSlideLeft 4s ease forwards;
 }
 
 @keyframes hintSlideLeft{

@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ẩn hẳn sau 2s (đúng animation)
   setTimeout(() => {
     hint.style.display = "none";
-  }, 5000);
+  }, 4000);
 
   // Nếu nhạc bắt đầu phát → ẩn ngay
   audio?.addEventListener("play", () => {
