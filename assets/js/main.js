@@ -446,3 +446,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(createHeart, 500);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hint  = document.getElementById("musicHint");
+  const audio = document.getElementById("bgMusic");
+
+  if (!hint) return;
+
+  // Ẩn hẳn sau 2s (đúng animation)
+  setTimeout(() => {
+    hint.style.display = "none";
+  }, 5000);
+
+  // Nếu nhạc bắt đầu phát → ẩn ngay
+  audio?.addEventListener("play", () => {
+    hint.style.display = "none";
+  });
+});
+

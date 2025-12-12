@@ -329,17 +329,66 @@ body {
     font-size: 1.25rem;
 }
 
+/* ========== TOOLTIP PHI RA TỪ NÚT ========== */
+.music-hint{
+  position: absolute;
+  right: calc(100% - 40px);   /* nằm sát bên trái của nút */
+  top: 50%;
+  transform: translateY(-50%) translateX(14px) scale(0.95);
+
+  background: #ffffff;
+  color: #c63b5a;
+  border: 1.5px solid #f3a3b5;
+
+  padding: 14px 14px;
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+
+  box-shadow: 0 6px 16px rgba(248, 170, 185, 0.35);
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  animation: hintSlideLeft 5s ease forwards;
+}
+
+@keyframes hintSlideLeft{
+  0%{
+    opacity: 0;
+    transform: translateY(-50%) translateX(16px) scale(0.92);
+  }
+  18%{
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+  85%{
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(-50%) translateX(8px) scale(0.95);
+  }
+}
+
+.fab-music {
+    background: white;
+    border: 2px solid var(--pink-medium);   
+    position: relative;   /* <<< thêm dòng này */
+    overflow: visible;    /* <<< thêm để tooltip không bị cắt */
+}
+
 .fab:hover {
     transform: scale(1.1);
 }
 
 .fab:active {
     transform: scale(0.95);
-}
-
-.fab-music {
-    background: white;
-    border: 2px solid var(--pink-medium);
 }
 
 .fab-scroll-top {
