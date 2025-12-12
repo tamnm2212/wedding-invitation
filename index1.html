@@ -1,38 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
     <title>Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025</title>
-
-    <!-- SEO -->
-    <meta name="description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025.">
+    <meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025.">
+    <meta property="og:url" content="https://dinhhoanglananh.netlify.app/">
+     <meta property="og:site_name" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025" />
+    <meta property="og:image" content="https://dinhhoanglananh.netlify.app/images/share_preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#f8d7da">
     <meta http-equiv="Cache-Control" content="no-cache">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025">
-    <meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ cưới của Trần Hoàng & Lan Anh vào ngày 27.12.2025.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dinhhoanglananh.netlify.app/">
-    <meta property="og:site_name" content="Thiệp Cưới - Trần Hoàng & Lan Anh | 27.12.2025">
-    <meta property="og:image" content="https://dinhhoanglananh.netlify.app/images/share_preview.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./images/ico.png">
-
-    <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="./images/ico.png">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- CSS riêng -->
-    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="floral-pattern">
 
@@ -811,7 +799,1265 @@
             <p class="text-xs sm:text-sm text-gray-500">Made with 💕 for our special day</p>
         </div>
     </footer>
-    <!-- JS riêng -->
-    <script src="assets/js/main.js"></script>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ========== VARIABLES ==========
+        const albumImages = [
+            'images/album01.png', 'images/album02.png', 'images/album03.png',
+            'images/album04.png', 'images/album05.png', 'images/album06.png',
+            'images/album07.png', 'images/album08.png', 'images/album09.png',
+            'images/album10.png', 'images/album11.png', 'images/album12.png'
+        ];
+        let currentImageIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // ========== GET GUEST NAME FROM URL ==========
+        function getGuestNameFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            if (name) {
+                document.getElementById('guestName').textContent = decodeURIComponent(name);
+                // Also pre-fill the RSVP form
+                const nameInput = document.querySelector('input[name="name"]');
+                if (nameInput) {
+                    nameInput.value = decodeURIComponent(name);
+                }
+            }
+        }
+
+        // Call on page load
+        getGuestNameFromURL();
+
+        // ========== STICKY HEADER ==========
+        const stickyHeader = document.getElementById('stickyHeader');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 300) {
+                stickyHeader.classList.add('visible');
+            } else {
+                stickyHeader.classList.remove('visible');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========== HAMBURGER MENU ==========
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ========== BOTTOM NAVIGATION ACTIVE STATE ==========
+        const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveNav() {
+            const scrollY = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    bottomNavItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.dataset.section === sectionId) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // ========== SCROLL TO TOP BUTTON ==========
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ========== COUNTDOWN TIMER ==========
+        function updateCountdown() {
+            const weddingDate = new Date('2025-12-26T18:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ========== MUSIC PLAYER ==========
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.classList.remove('playing');
+                musicBtn.querySelector('.music-icon').textContent = '🔇';
+            } else {
+                bgMusic.play().catch(e => console.log('Audio play failed:', e));
+                musicBtn.classList.add('playing');
+                musicBtn.querySelector('.music-icon').textContent = '🎵';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // ========== FADE IN ON SCROLL ==========
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== LIGHTBOX ==========
+        const photoGrid = document.getElementById('photoGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCurrent = document.getElementById('lightboxCurrent');
+        const lightboxTotal = document.getElementById('lightboxTotal');
+
+        lightboxTotal.textContent = albumImages.length;
+
+        photoGrid.addEventListener('click', (e) => {
+            const photoItem = e.target.closest('.photo-item');
+            if (photoItem) {
+                currentImageIndex = parseInt(photoItem.dataset.index);
+                openLightbox();
+            }
+        });
+
+        function openLightbox() {
+            lightboxImg.src = albumImages[currentImageIndex];
+            lightboxCurrent.textContent = currentImageIndex + 1;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = albumImages.length - 1;
+            if (currentImageIndex >= albumImages.length) currentImageIndex = 0;
+            lightboxImg.src = albumImages[currentImageIndex];
+            lightboxCurrent.textContent = currentImageIndex + 1;
+        }
+
+        // Lightbox keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // Lightbox swipe navigation
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    navigateLightbox(1); // Swipe left - next
+                } else {
+                    navigateLightbox(-1); // Swipe right - previous
+                }
+            }
+        }
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // ========== RSVP FORM ==========
+        const rsvpForm = document.getElementById('rsvpForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // THAY BẰNG URL WEB APP CỦA BẠN
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6tRKC6IvwSuBWY9hypsM7-x0bZ1bBoWppLV4_B9MMbQvyM-fSnCl2Qe0juPgUDHf5Iw/exec';
+
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+                    
+            const formData = new FormData(rsvpForm);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                guestType: formData.get('guestType'),
+                attendance: formData.get('attendance'),
+                message: formData.get('message')
+            };
+
+            console.log('RSVP Data:', data);
+
+            // Gửi dữ liệu lên Google Apps Script (Google Sheet)
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // tránh lỗi CORS, gửi "âm thầm"
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).catch(error => {
+                console.error('Error sending to Google Script:', error);
+            });
+
+            // Hiện hiệu ứng cảm ơn như cũ
+            rsvpForm.style.opacity = '0';
+            rsvpForm.style.transform = 'translateY(-20px)';
+                    
+            setTimeout(() => {
+                rsvpForm.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                successMessage.style.opacity = '0';
+                successMessage.style.transform = 'translateY(20px)';
+                        
+                setTimeout(() => {
+                    successMessage.style.transition = 'all 0.5s ease';
+                    successMessage.style.opacity = '1';
+                    successMessage.style.transform = 'translateY(0)';
+                }, 50);
+            }, 300);
+
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        const wishListEl = document.getElementById('wishList');
+
+        function renderWishes(wishes) {
+            if (!wishListEl) return;
+
+            if (!wishes || wishes.length === 0) {
+                wishListEl.innerHTML = '<p class="text-gray-400 text-sm">Chưa có lời chúc nào, hãy là người đầu tiên nhé 🥰</p>';
+                return;
+            }
+
+            wishListEl.innerHTML = ''; // xoá cũ
+
+            wishes.forEach(function(wish) {
+                const item = document.createElement('div');
+                item.className = 'bg-pink-50/60 rounded-lg px-3 py-2 sm:px-4 sm:py-3';
+                item.innerHTML = `
+                    <p class="font-semibold text-gray-800 text-sm sm:text-base">${wish.name || 'Ẩn danh'}</p>
+                    <p class="text-gray-700 text-sm sm:text-base mt-1 whitespace-pre-line">${wish.message || ''}</p>
+                `;
+                wishListEl.appendChild(item);
+            });
+        }
+
+        // Gọi API doGet để lấy list lời chúc
+        function loadWishes() {
+            fetch(GOOGLE_SCRIPT_URL)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    renderWishes(data);
+                })
+                .catch(function(err) {
+                    console.error('Không tải được lời chúc:', err);
+                });
+        }
+
+        // Load ngay khi trang mở
+        loadWishes();
+
+        // Sau khi submit RSVP xong thì load lại list (thêm dưới phần xử lý submit RSVP):
+        // Trong .then() của fetch RSVP (hoặc ngay sau phần hiệu ứng success) bạn thêm:
+        loadWishes();
+        // Cập nhật lại mỗi 1 giây
+        setInterval(loadWishes, 1000);
+        // ========== SMOOTH SCROLL FOR NAVIGATION ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 70;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ========== INITIAL ANIMATION FOR HERO ==========
+        window.addEventListener('load', function() {
+            document.querySelectorAll('#hero .fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, 200 * index);
+            });
+        });
+
+        // ========== PREVENT ZOOM ON INPUT FOCUS (iOS) ==========
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('focus', () => {
+                document.querySelector('meta[name="viewport"]').setAttribute(
+                    'content', 
+                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+                );
+            });
+            el.addEventListener('blur', () => {
+                document.querySelector('meta[name="viewport"]').setAttribute(
+                    'content', 
+                    'width=device-width, initial-scale=1.0'
+                );
+            });
+        });
+
+        // ========== ORIENTATION CHANGE HANDLER ==========
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                window.scrollBy(0, 1);
+            }, 100);
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function createHeart() {
+                const heart = document.createElement("div");
+
+                // Trái tim màu hồng
+                heart.innerHTML = "💗";
+                heart.classList.add("heart");
+
+                // Kích thước tim (nhỏ – vừa)
+                const size = Math.random() * 8 + 4; // 10px → 20px
+                heart.style.fontSize = size + "px";
+
+                // Vị trí ngang ngẫu nhiên
+                heart.style.left = Math.random() * 100 + "vw";
+
+                // Thời gian rơi (8–13 giây)
+                const duration = Math.random() * 5 + 10;
+                heart.style.animationDuration = duration + "s";
+
+                document.body.appendChild(heart);
+
+                // Xóa khi rơi xong
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }
+
+            // 0.7s tạo 1 trái tim
+            setInterval(createHeart, 500);
+        });
+
+
+
+
+    </script>
+    <style>
+        /* ============ CSS VARIABLES ============ */
+        :root {
+            --pink-light: #fdf2f4;
+            --pink-medium: #f8d7da;
+            --pink-accent: #e8a0b0;
+            --beige: #f5f0e8;
+            --gold: #c9a86c;
+            --gold-dark: #a8894d;
+            --white: #ffffff;
+            --text-dark: #4a4a4a;
+            --text-light: #6b6b6b;
+            --nav-height: 60px;
+            --bottom-nav-height: 70px;
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        * {
+            /* margin: 0; */
+            /* padding: 0; */
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--pink-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Safe area for notched devices */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            body {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+
+        /* Font Classes */
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .font-elegant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Floral Pattern Background */
+        .floral-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8a0b0' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ============ HERO SECTION ============ */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/share_preview.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 
+            ========== ĐIỀU CHỈNH ĐỘ MỜ 1/3 DƯỚI ẢNH NỀN ==========
+            Thay đổi giá trị gradient để điều chỉnh vùng mờ:
+            - transparent 0% 50%: phần trên trong suốt (0% đến 50%)
+            - rgba(255,255,255,0.85): độ mờ trắng (0.85 = 85% trắng)
+            - 70% 100%: vùng mờ bắt đầu từ 70% đến 100% chiều cao
+        */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.7) 70%,
+                rgba(255, 255, 255, 0.95) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            margin-top: auto;
+            padding: 2rem 1rem 6rem;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-content {
+                padding: 3rem 2rem 8rem;
+            }
+        }
+
+        /* ============ STICKY HEADER ============ */
+        .sticky-header {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: top 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .sticky-header.visible {
+            top: 0;
+        }
+
+        .sticky-header .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: var(--pink-accent);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+                gap: 2rem;
+            }
+            .hamburger {
+                display: none;
+            }
+        }
+
+        .desktop-nav a {
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-accent);
+            transition: width 0.3s;
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--pink-accent);
+        }
+
+        /* ============ BOTTOM NAVIGATION (MOBILE) ============ */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--bottom-nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: var(--safe-area-bottom);
+        }
+
+        @media (min-width: 768px) {
+            .bottom-nav {
+                display: none;
+            }
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.65rem;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .bottom-nav-item.active,
+        .bottom-nav-item:hover {
+            color: var(--pink-accent);
+            background: rgba(232, 160, 176, 0.1);
+        }
+
+        .bottom-nav-item .icon {
+            font-size: 1.25rem;
+        }
+
+        /* Add padding to body for bottom nav */
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom));
+            }
+            .hero-background {
+            background-image: url('images/bg_main.png');
+        }
+        }
+
+        /* ============ FLOATING ACTION BUTTONS ============ */
+        .fab-container {
+            position: fixed;
+            right: 1rem;
+            bottom: calc(var(--bottom-nav-height) + 1rem + var(--safe-area-bottom));
+            z-index: 900;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .fab-container {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        .fab {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: none;
+            font-size: 1.25rem;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab:active {
+            transform: scale(0.95);
+        }
+
+        .fab-music {
+            background: white;
+            border: 2px solid var(--pink-medium);
+        }
+
+        .fab-scroll-top {
+            background: var(--pink-accent);
+            color: white;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .fab-scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Music Button Animation */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fab-music.playing .music-icon {
+            animation: spin 3s linear infinite;
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ============ COUNTDOWN BOXES ============ */
+        .countdown-box {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            border: 2px solid var(--pink-accent);
+            box-shadow: 0 10px 30px rgba(200, 150, 160, 0.2);
+        }
+
+        /* ============ EVENT CARDS ============ */
+        .event-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .event-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(200, 150, 160, 0.3);
+            }
+        }
+
+        /* Touch feedback for mobile */
+        .event-card:active {
+            transform: scale(0.98);
+        }
+        /* ============ GOOGLE MAP EMBED ============ */
+        .map-embed {
+            width: 100%;
+            height: 180px;                /* chiều cao ô map */
+            border-radius: 0.75rem;       /* bo tròn giống card */
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #f3f3f3;
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ============ BUTTONS ============ */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (hover: hover) {
+            .btn-gold:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(201, 168, 108, 0.4);
+            }
+        }
+
+        .btn-gold:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ PHOTO GRID ============ */
+        .photo-item {
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (hover: hover) {
+            .photo-item:hover {
+                transform: scale(1.02);
+            }
+
+            .photo-item:hover img {
+                transform: scale(1.1);
+            }
+        }
+
+        .photo-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ LIGHTBOX ============ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.875rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        /* ============ DECORATIVE LINE ============ */
+        .decorative-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ============ FORM ELEMENTS ============ */
+        .custom-radio input:checked + span {
+            background-color: var(--pink-accent);
+            border-color: var(--pink-accent);
+            color: white;
+        }
+
+        input, textarea, select {
+            font-size: 16px !important; /* Prevent zoom on iOS */
+        }
+
+        /* ============ SCROLLBAR ============ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--pink-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-accent);
+            border-radius: 4px;
+        }
+
+        /* Hide scrollbar on mobile */
+        @media (max-width: 767px) {
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            body {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+
+        /* ============ RESPONSIVE TYPOGRAPHY ============ */
+        .text-responsive-sm {
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+        }
+
+        .text-responsive-base {
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
+        }
+
+        .text-responsive-lg {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+        }
+
+        .text-responsive-xl {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+        }
+
+        .text-responsive-2xl {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .text-responsive-3xl {
+            font-size: clamp(2rem, 6vw, 3rem);
+        }
+
+        .text-responsive-4xl {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+        }
+
+        .text-responsive-5xl {
+            font-size: clamp(3rem, 10vw, 5rem);
+        }
+
+        /* ============ RESPONSIVE SPACING ============ */
+        .section-padding {
+            padding-top: clamp(3rem, 8vw, 6rem);
+            padding-bottom: clamp(3rem, 8vw, 6rem);
+        }
+
+        .container-padding {
+            padding-left: clamp(1rem, 4vw, 2rem);
+            padding-right: clamp(1rem, 4vw, 2rem);
+        }
+        /* ============ FIX CĂN GIỮA CONTAINER TRÊN DESKTOP ============ */
+        /* Fallback nếu Tailwind không load */
+        .container {
+            width: 100%;
+            max-width: 1200px;        /* bạn có thể đổi 1000 / 1100 / 1200 tuỳ thích */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mx-auto {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        /* ============ QR CODE CARDS ============ */
+        .qr-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            border: 2px solid var(--pink-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .qr-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(200, 150, 160, 0.3);
+            }
+        }
+
+        .qr-card:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ ORIENTATION HANDLING ============ */
+        @media (orientation: landscape) and (max-height: 500px) {
+            #hero {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+            
+            .countdown-box {
+                padding: 0.75rem !important;
+            }
+            
+            .countdown-box span:first-child {
+                font-size: 1.5rem !important;
+            }
+        }
+        /* ============ WEDDING CALENDAR ============ */
+        .calendar-card {
+            background: linear-gradient(180deg, #ffffff 0%, #fdf2f4 100%);
+            border-radius: 1rem;
+            border: 1px solid var(--pink-medium);
+            padding: 1.5rem 2rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(200, 150, 160, 0.25);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            font-size: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-weekdays span {
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .calendar-day {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            color: var(--text-dark);
+        }
+
+        .calendar-day--empty {
+            background: transparent;
+        }
+
+        .calendar-day--muted {
+            color: #c0c0c0;
+        }
+
+        .calendar-day--wedding {
+            background: var(--pink-accent);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(200, 150, 160, 0.35);
+        }
+
+        /* Hiệu ứng trái tim rơi thẳng */
+        .heart {
+            position: fixed;
+            top: -10px;
+            left: 0;
+            pointer-events: none;
+            animation-name: heart-fall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            opacity: 0.9;
+            z-index: 9999;
+        }
+
+        @keyframes heart-fall {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh); /* rơi thẳng xuống dưới */
+                opacity: 0;
+            }
+        }
+    </style>
+
 </body>
 </html>
