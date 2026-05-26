@@ -101,7 +101,7 @@ scrollTopBtn.addEventListener('click', () => {
 
 // ========== COUNTDOWN TIMER ==========
 function updateCountdown() {
-    const weddingDate = new Date('2025-12-26T18:00:00').getTime();
+    const weddingDate = new Date('2026-06-05T16:00:00').getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
