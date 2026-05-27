@@ -106,6 +106,14 @@ body {
     }
 }
 
+@media (max-width: 640px) {
+    .hero-content {
+        margin-top: auto;
+        padding-top: 6rem; 
+        padding-bottom: 0rem;
+    }
+}
+
 /* ============ STICKY HEADER ============ */
 .sticky-header {
     position: fixed;
